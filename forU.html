@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>31/10/2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: rgb(0, 0, 0);
+            text-align: center;
+            color: white;
+        }
+        h1 {
+            margin-top: 2%;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 40px;
+        }
+        .gift-button {
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            color: white;
+            font-size: 20px;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+            position: relative;
+            margin-top: 20px;
+        }
+        .gift-button:hover {
+            transform: scale(1.1);
+        }
+        #gift-box {
+            display: none;
+            background: rgba(245, 244, 244, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #gift-box img {
+            max-width: 300px;
+            border-radius: 10px;
+        }
+        #gift-box button {
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            background: crimson;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .content {
+            height: 30vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .photo-section {
+            text-align: center;
+            padding: 50px 0;
+        }
+        .photo-section img {
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        footer {
+            background: #ebd9d9;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        #questionContainer {
+        position: relative;
+        width: 300px;
+        height: 100px;
+        margin: 50px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+
+        #yesBtn, #noBtn {
+        position: absolute;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: transform 0.2s;
+        }
+
+        #yesBtn {
+        background-color: #ff69b4;
+        color: white;
+        left: 20px;
+        top: 20px;
+        }
+
+        #noBtn {
+        background-color: #1e90ff;
+        color: white;
+        left: 150px;
+        top: 20px;
+        }
+
+        #noBtn:hover {
+        transform: scale(1.2);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Selamat Ulang Tahun Wahyu 🎂✨</h1>
+    </div>
+    
+    <canvas id="fireworks"></canvas>
+    
+    <!-- Tombol fun -->
+    <div id="questionContainer">
+        <button id="yesBtn">Traktir aku</button>
+        <button id="noBtn">Gak Ah</button>
+    </div>
+
+    <div class="photo-section">
+        <button class="gift-button" onclick="showGift()">Buka Hadiah 🎁</button>
+        <p></p>
+        <h2>Look at U</h2>
+        <img src="2.JPG" alt="Foto Kenangan2"> 
+    </div>
+    
+    <div id="gift-box">
+        <h2>🎁 Spesial Untukmu 🎁</h2>
+        <p>Selamat Ulang Tahun 🎂✨
+            Semoga bertambahnya usia menjadikanmu pribadi yang lebih dewasa, lebih bijak dalam mengambil keputusan, dan lebih bertanggung jawab atas apa yang kau pilih dalam hidup. Aku berharap segala yang kau impikan bisa terwujud, rezekimu lancar, kesehatanmu selalu terjaga, dan langkahmu semakin dimudahkan.
+            Selamat merayakan hari spesialmu. Semoga kebahagiaan selalu menyertaimu, bahkan jika bukan aku lagi yang jadi alasannya. 😊🎉✨</p>
+        <p></p>
+
+        <button onclick="closeGift()">Close</button>
+        <button  onclick="window.location.href='birthday.html'">Next Page ➡️</button>
+    </div>
+    
+    
+    <footer>
+        <p>Created with ❤️ by Arumra</p>
+    </footer>
+    
+    <script>
+        // fun
+        const noBtn = document.getElementById("noBtn");
+        const yesBtn = document.getElementById("yesBtn");
+        const questionContainer = document.getElementById("questionContainer");
+
+        noBtn.addEventListener("mouseenter", function () {
+        const containerRect = questionContainer.getBoundingClientRect();
+        const btnWidth = noBtn.offsetWidth;
+        const btnHeight = noBtn.offsetHeight;
+
+        const maxX = containerRect.width - btnWidth;
+        const maxY = containerRect.height - btnHeight;
+
+        const newX = Math.floor(Math.random() * maxX);
+        const newY = Math.floor(Math.random() * maxY);
+
+        noBtn.style.left = `${newX}px`;
+        noBtn.style.top = `${newY}px`;
+        });
+
+        yesBtn.addEventListener("click", function () {
+        Swal.fire({
+            icon: 'success',
+            title: 'Deal! 🎉',
+            text: 'Aku nunggu traktiranmu wkwk! 🍔☕',
+            confirmButtonText: 'Oke!'
+        }).then(() => {
+            // Ganti nomor dengan nomor kamu (format internasional tanpa +, misal: 6281234567890)
+            const phoneNumber = "6281336894480"; 
+            const message = encodeURIComponent("Halo Ara! Aku setuju traktir kamu wkwk! 🍔☕");
+            const waURL = `https://wa.me/${phoneNumber}?text=${message}`;
+            window.open(waURL, "_blank"); // buka WhatsApp di tab baru
+        });
+        });
+
+        
+        // gift box
+        function showGift() {
+            document.getElementById('gift-box').style.display = 'block';
+        }
+        function closeGift() {
+            document.getElementById('gift-box').style.display = 'none';
+        }
+        
+        let canvas = document.getElementById("fireworks");
+        let ctx = canvas.getContext("2d");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        class Firework {
+            constructor(x, y, color) {
+                this.x = x;
+                this.y = y;
+                this.color = color;
+                this.particles = [];
+                for (let i = 0; i < 50; i++) {
+                    this.particles.push(new Particle(this.x, this.y, this.color));
+                }
+            }
+            draw() {
+                this.particles.forEach(p => p.update());
+            }
+        }
+
+        class Particle {
+            constructor(x, y, color) {
+                this.x = x;
+                this.y = y;
+                this.color = color;
+                this.speedX = (Math.random() - 0.5) * 6;
+                this.speedY = (Math.random() - 0.5) * 6;
+                this.alpha = 1;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                this.alpha -= 0.02;
+                ctx.globalAlpha = this.alpha;
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, 3, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        let fireworks = [];
+        function animate() {
+            requestAnimationFrame(animate);
+            ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            fireworks.forEach(firework => firework.draw());
+        }
+
+        setInterval(() => {
+            fireworks.push(new Firework(Math.random() * canvas.width, Math.random() * canvas.height, `hsl(${Math.random() * 360}, 100%, 50%)`));
+            if (fireworks.length > 10) fireworks.shift();
+        }, 500);
+
+        animate();
+    </script>
+    <!-- SweetAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+</html>
